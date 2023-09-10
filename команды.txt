@@ -1,0 +1,33 @@
+u1=User.objects.create_user(username="George")
+u2=User.objects.create_user(username="Flatcher")
+Author.objects.create(AuthorUser=u1)
+Author.objects.create(AuthorUser=u2)
+Category.objects.create(name="Walking")
+Category.objects.create(name="Driving")
+Category.objects.create(name="Sweeming")
+Category.objects.create(name="Running")
+author=Author.objects.get(id=1)
+author
+Post.objects.create(category_type="AR",Author=author,title="Walking is normal", text="Walking is normal, because of....",)
+author=Author.objects.get(id=2) 
+author
+Post.objects.create(category_type="AR",Author=author,title="Running is normal", text="Running is normal, because of....",)
+Post.objects.create(category_type="NW",Author=author,title="We all gonna die",text="Somewhen everybody will die soon or later")
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=4))
+Comment.objects.create(commentPost=Post.objects.get(id=1),commentUser=Author.objects.get(id=1).AuthorUser,text='wallking is not enough')
+ Comment.objects.create(commentPost=Post.objects.get(id=2),commentUser=Author.objects.get(id=2).AuthorUser,text="i'd better sleep"
+Comment.objects.create(commentPost=Post.objects.get(id=3),commentUser=Author.objects.get(id=2).AuthorUser,text="Sad topyc. Next one !")
+ Comment.objects.get(id=1).like()
+ Comment.objects.get(id=1).like()
+ Comment.objects.get(id=2).like() 
+ Comment.objects.get(id=2).like()
+ Author.objects.get(id=1)
+ a=Author.objects.get(id=1)
+ a.update_rating()
+ a.ratingAuthor
+for i in a :
+     i.author.dateCreation
+     i.authorUser.username
+     i.rating_author
+
+comments = post.comment_set.values('dateCreation', 'commentPost', 'commentUser', 'text', 'rating')
